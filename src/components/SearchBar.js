@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, TextInput} from "react-native";
 import { Feather } from '@expo/vector-icons'
 
-const SearchBar = ({ term, onTermChange }) => {
+const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return <View style={styles.backgroundStyle}>
     <Feather 
         name="search" 
@@ -15,6 +15,9 @@ const SearchBar = ({ term, onTermChange }) => {
         style={styles.inputStyle}
         value={term}
         onChangeText={newTerm => onTermChange(newTerm)}
+        
+        // onEndEditing={() => onTermSubmit()} is the long/verbose version of the code below
+        onEndEditing={onTermSubmit}
     />
   </View>
 };
