@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, FlatList, Image } from "react-native";
 import yelp from '../api/yelp';
 
 const ResultsShowScreen= ({ navigation }) => {
     const [result, setResult] = useState(null);
-
-    console.log(result);
     
     // how we will get information from the second argument that we called nagivate with
     const id = navigation.getParam('id');
@@ -18,13 +16,30 @@ const ResultsShowScreen= ({ navigation }) => {
         getResult(id)
     }, [])
 
+    // don't show anything on the screen until we get a result
+    if (!result) {
+        return null
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Results Show Screen</Text>
+            <Text>{result.name}</Text>
+            <FlatList 
+                data={result.photos}
+                keyExtractor={photo => photo}
+                renderItem={({ item }) => {
+                    return <Image style={styles.imageStyle} source={{ uri: item }} />
+                }}
+            />
         </View>
     )
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    imageStyle: {
+        height: 200,
+        width: 300
+    }
+});
 
 export default ResultsShowScreen;
