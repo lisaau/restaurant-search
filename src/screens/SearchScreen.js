@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import SearchBar from '../components/SearchBar';
 import yelp from "../api/yelp";
@@ -8,12 +8,12 @@ const SearchScreen = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const searchAPI = async () => {
+  const searchAPI = async (searchTerm) => {
     try {
       const response = await yelp.get('/search', {
         params: {
           limit: 50,
-          term, // same as term: term
+          term: searchTerm, // term is same as term: term
           location: 'san francisco'
         }
       });
@@ -23,11 +23,16 @@ const SearchScreen = () => {
     }
   }
 
+  // second argument is empty array to run useEffect one time
+  useEffect( () => {
+    searchAPI('pasta');
+  }, []);
+
   return <View>
     <SearchBar 
       term={term} 
-      onTermChange={newTerm => setTerm(newTerm)} 
-      onTermSubmit={searchAPI} // is the same as: onTermSubmit={() => searchAPI()}
+      onTermChange={setTerm} // onTermChange={setTerm} is same as onTermChange={newTerm => setTerm(newTerm)}
+      onTermSubmit={() => searchAPI(term)}
     />
     {errorMessage ? <Text style={styles.text}>{errorMessage}</Text> : null}
     <Text>We have found {restaurants.length} restaurants</Text>
