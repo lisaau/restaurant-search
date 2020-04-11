@@ -15,7 +15,9 @@ const SearchScreen = () => {
     });
   };
 
-  return <View>
+  return (
+    // add flex: 1 styling so content fits on screen even if screen is small
+    <View style={{ flex: 1 }}>
     <SearchBar 
       term={term} 
       onTermChange={setTerm} // onTermChange={setTerm} is same as onTermChange={newTerm => setTerm(newTerm)}
@@ -29,6 +31,7 @@ const SearchScreen = () => {
       <ResultsList results={filterRestaurantsByPrice('$$$')} title='Big Spender' />
     </ScrollView>
   </View>
+  )
 };
 
 const styles = StyleSheet.create({
