@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import yelp from "../api/yelp";
 
 export default () => {
-    const [restaurants, setRestaurants] = useState([]);
+    const [results, setResults] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
 
     const searchAPI = async (searchTerm) => {
@@ -14,7 +14,7 @@ export default () => {
             location: 'san francisco'
             }
         });
-        setRestaurants(response.data.businesses);
+        setResults(response.data.businesses);
         } catch (err) {
         setErrorMessage('Something went wrong')
         }
@@ -25,5 +25,5 @@ export default () => {
         searchAPI('pasta');
     }, []);
 
-    return [searchAPI, restaurants, errorMessage]
+    return [searchAPI, results, errorMessage]
 }
