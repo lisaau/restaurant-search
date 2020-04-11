@@ -5,6 +5,11 @@ import ResultsDetail from './ResultsDetail';
 
 
 const ResultsList = ({ title, results, navigation }) => {
+    // Don't show anything until we fetch data. also hides a ResultList section if no restaurants are found
+    if(!results.length) {
+        return null;
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.titleStyle}>{title}</Text>
