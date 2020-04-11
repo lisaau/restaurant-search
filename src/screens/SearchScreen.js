@@ -16,7 +16,7 @@ const SearchScreen = () => {
   };
 
   return (
-    // add flex: 1 styling so content fits on screen even if screen is small
+    // add flex: 1 styling so content fits on screen even if screen is small; alternatively, wrap with empty element <> </>
     <View style={{ flex: 1 }}>
     <SearchBar 
       term={term} 
@@ -24,7 +24,7 @@ const SearchScreen = () => {
       onTermSubmit={() => searchAPI(term)}
     />
     {errorMessage ? <Text style={styles.text}>{errorMessage}</Text> : null}
-    <Text>We have found {results.length} results</Text>
+
     <ScrollView>
       <ResultsList results={filterRestaurantsByPrice('$')} title='Cost Effective' />
       <ResultsList results={filterRestaurantsByPrice('$$')} title='Bit Pricier' />
