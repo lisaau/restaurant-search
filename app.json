@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-starter",
-    "slug": "rn-starter",
+    "name": "restaurant-search",
+    "slug": "restaurant-search",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
