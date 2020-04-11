@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     imageStyle: {
         width: 250,
         height: 120,
-        borderRadius: 4
+        borderRadius: 4,
+        marginBottom: 5,
     },
     nameStyle: {
         fontWeight: 'bold',
