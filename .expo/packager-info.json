@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 78821,
-  "expoServerNgrokUrl": "https://uu-5zb.anonymous.restaurant-search.exp.direct",
-  "packagerNgrokUrl": "https://packager.uu-5zb.anonymous.restaurant-search.exp.direct",
-  "ngrokPid": 78835
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
