@@ -2,7 +2,7 @@
 
 React Native app built with Expo from [Udemy](https://www.udemy.com/course/the-complete-react-native-and-redux-course/). Built with React Native, Expo, and Yelp's API.
 
-
+<img src="/assets/mainScreen.png" alt="mainScreen" style="zoom:25%;" />
 
 ### Viewing the app:
 
