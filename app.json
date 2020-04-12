@@ -2,6 +2,7 @@
   "expo": {
     "name": "restaurant-search",
     "slug": "restaurant-search",
+    "description": "React Native app created with Expo for searching restaurants",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
